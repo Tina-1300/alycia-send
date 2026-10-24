@@ -1,0 +1,33 @@
+[package]
+name = "alycia-send"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+arboard = "3"
+clap = { version = "4.6", features = ["derive"] }
+enigo = "0.6"
+rand = "0.10"
+
+
+
+
+
+[profile.release]
+# Maximum code optimization
+opt-level = 3
+# Link-Time Optimization
+# Allows LLVM to optimize across different crates.
+lto = true
+# Use a single code generation unit for better optimization
+# when using LTO.
+codegen-units = 1
+# Disable debug symbols in the final binary.
+debug = false
+# Strip unnecessary symbols from the binary.
+strip = true
+# Abort immediately when a panic occurs instead of
+# generating unwinding code.
+panic = "abort"
+# Disable integer overflow checks in release builds.
+overflow-checks = false
